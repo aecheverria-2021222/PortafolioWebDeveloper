@@ -76,7 +76,10 @@ export function initScrollNav() {
       if (!target) return;
 
       e.preventDefault();
-      const targetY = Math.round(target.getBoundingClientRect().top + window.scrollY);
+      // Mismo hueco que el salto de ancla nativo (scroll-margin-top en CSS):
+      // si no se descuenta, el destino queda tapado tras el header sticky.
+      const scrollMarginTop = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+      const targetY = Math.round(target.getBoundingClientRect().top + window.scrollY - scrollMarginTop);
       const direction = targetY > window.scrollY ? "down" : "up";
 
       animateTo(targetY, () => {

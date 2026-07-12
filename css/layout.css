@@ -12,6 +12,12 @@
 /* Secciones con ritmo vertical generoso */
 .section {
   padding-block: clamp(56px, 9vw, 112px);
+  /* Deja hueco para el header sticky (~77px) al saltar por ancla: en
+     escritorio el padding-block ya supera esa altura, pero en móvil baja de
+     56px (menos que el header) y el destino del salto queda tapado detrás
+     de él. scroll-nav.js lee este valor para que el salto animado coincida
+     con el salto nativo (sin JS). */
+  scroll-margin-top: var(--sp-9);
 }
 
 .section--tight {
