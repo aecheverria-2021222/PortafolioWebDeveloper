@@ -17,6 +17,7 @@
   <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
 
   <script>
+    document.documentElement.classList.add("js-nav");
     (function () {
       try {
         if (localStorage.getItem("ae-theme") === "dark") {
@@ -41,6 +42,10 @@
 
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Velo de transición entre páginas (lo controla js/modules/transition.js).
+       Sin JS nunca se muestra: la clase .js-nav la añade el script del <head>. -->
+  <div class="page-veil" data-page-veil aria-hidden="true"></div>
 
   <!-- HEADER -->
   <header class="header" data-header>

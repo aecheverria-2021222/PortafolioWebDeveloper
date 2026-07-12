@@ -9,8 +9,10 @@ import { initScrollNav } from "./modules/scroll-nav.js";
 import { initScrollFx } from "./modules/scroll-fx.js";
 import { initPointerGlow } from "./modules/pointer.js";
 import { initLightbox } from "./modules/lightbox.js";
+import { initPageTransition } from "./modules/transition.js";
 
 function start() {
+  initPageTransition();
   initTheme();
   initNav();
   initReveal();

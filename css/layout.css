@@ -359,3 +359,52 @@
 .pointer-glow.is-active {
   opacity: 1;
 }
+
+/* ============================================================
+   VELO DE TRANSICIÓN ENTRE PÁGINAS
+   Cubre el parpadeo al navegar entre documentos (landing ↔ fichas).
+   La clase .js-nav (script del <head>) garantiza que sin JS nunca aparezca.
+   Entrada: la anima el CSS (auto-curable). Salida: la dispara transition.js.
+   ============================================================ */
+.page-veil {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-veil);
+  background: var(--canvas);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Con JS activo: al cargar, el velo entra tapando y se desvanece revelando. */
+.js-nav .page-veil {
+  visibility: visible;
+  animation: pageVeilReveal var(--dur) var(--ease) forwards;
+}
+
+/* Al salir hacia otra página, el velo vuelve a tapar antes de navegar. */
+.page-veil.is-leaving {
+  visibility: visible;
+  pointer-events: all;
+  animation: pageVeilCover var(--dur) var(--ease) forwards;
+}
+
+@keyframes pageVeilReveal {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes pageVeilCover {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Sin movimiento: nada de fundidos; el contenido aparece de inmediato. */
+@media (prefers-reduced-motion: reduce) {
+  .js-nav .page-veil,
+  .page-veil.is-leaving {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
