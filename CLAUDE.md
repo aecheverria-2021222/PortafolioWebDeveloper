@@ -57,7 +57,10 @@ js/
   modules/theme.js         # Modo claro/oscuro
   modules/nav.js           # Menú móvil + sombra header + scroll-spy
   modules/reveal.js        # Animación de entrada (IntersectionObserver)
-  modules/form.js          # Validación del formulario
+  modules/form.js          # Validación + envío del formulario (Formspree AJAX)
+  modules/scroll-nav.js    # Salto suave y direccional al pulsar el nav
+  modules/scroll-fx.js     # Barra de progreso de lectura + parallax del hero
+  modules/pointer.js       # Glow ambiental que sigue al puntero
 assets/                    # img · docs (cv.pdf) · favicon
 ```
 

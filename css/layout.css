@@ -21,7 +21,7 @@
 /* Cabecera de sección (eyebrow + título + intro) */
 .section__head {
   max-width: 54ch;
-  margin-bottom: clamp(32px, 5vw, 56px);
+  margin-bottom: clamp(24px, 4vw, 40px);
 }
 
 .eyebrow {
@@ -287,4 +287,41 @@
     display: inline-flex;
     margin-top: auto;
   }
+}
+
+/* ============================================================
+   EFECTOS GLOBALES (creados por JS; degradan sin él)
+   ============================================================ */
+
+/* Barra de progreso de lectura (borde superior) */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 300;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Glow ambiental que sigue al puntero (detrás del contenido) */
+.pointer-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle closest-side, var(--glow), transparent);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+  will-change: transform;
+}
+
+.pointer-glow.is-active {
+  opacity: 1;
 }

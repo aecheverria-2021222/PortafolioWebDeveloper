@@ -15,6 +15,10 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* El fondo vive en :root para que el glow del puntero (z-index:-1) asome
+     por el lienzo sin quedar oculto tras el fondo del body. */
+  background-color: var(--canvas);
+  transition: background-color var(--dur) var(--ease);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -24,14 +28,14 @@ html {
 }
 
 body {
-  background-color: var(--canvas);
+  background-color: transparent; /* el fondo lo pinta :root (ver arriba) */
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  transition: color var(--dur) var(--ease);
 }
 
 /* Media */
