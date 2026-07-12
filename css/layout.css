@@ -11,17 +11,21 @@
 
 /* Secciones con ritmo vertical generoso */
 .section {
-  padding-block: clamp(56px, 9vw, 112px);
-  /* Deja hueco para el header sticky (~77px) al saltar por ancla: en
-     escritorio el padding-block ya supera esa altura, pero en móvil baja de
-     56px (menos que el header) y el destino del salto queda tapado detrás
-     de él. scroll-nav.js lee este valor para que el salto animado coincida
-     con el salto nativo (sin JS). */
-  scroll-margin-top: var(--sp-9);
+  --section-pad-y: clamp(56px, 9vw, 112px);
+  padding-block: var(--section-pad-y);
+  /* Salto por nav: el encabezado debe caer SIEMPRE ~24px bajo el header, sin
+     importar el padding de la sección (en escritorio llega a 112px y en móvil
+     baja a 56px). Restamos ese padding para que el hueco superior sea CONSTANTE
+     en móvil, tablet y escritorio y no quede un blanco enorme arriba.
+     --header-h lo fija nav.js con la altura real del header (varía por
+     breakpoint); 76px es el respaldo para el salto de ancla nativo sin JS.
+     scroll-nav.js lee este mismo valor para que el salto animado coincida. */
+  scroll-margin-top: calc(var(--header-h) + 24px - var(--section-pad-y));
 }
 
 .section--tight {
-  padding-block: clamp(40px, 6vw, 72px);
+  --section-pad-y: clamp(40px, 6vw, 72px);
+  padding-block: var(--section-pad-y);
 }
 
 /* Cabecera de sección (eyebrow + título + intro) */
@@ -230,7 +234,7 @@
 }
 
 /* ---------- Responsive: menú móvil ---------- */
-@media (max-width: 820px) {
+@media (max-width: 1080px) {
   .nav-toggle {
     display: flex;
   }
@@ -308,7 +312,7 @@
   display: none;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 1080px) {
   .header .header__cv {
     display: none;
   }

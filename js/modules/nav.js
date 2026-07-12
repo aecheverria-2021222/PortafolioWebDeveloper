@@ -7,11 +7,24 @@ export function initNav() {
   const nav = document.querySelector("[data-nav]");
   const backdrop = document.querySelector("[data-nav-backdrop]");
 
-  /* --- Sombra del header al hacer scroll --- */
+  /* --- Header: sombra al hacer scroll + altura real para el salto del nav --- */
   if (header) {
     const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Publica la altura real del header en --header-h para que scroll-margin-top
+    // posicione bien el destino del salto en cada breakpoint (el header no mide
+    // lo mismo en móvil, tablet y escritorio).
+    const setHeaderH = () =>
+      document.documentElement.style.setProperty("--header-h", `${Math.round(header.offsetHeight)}px`);
+    setHeaderH();
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(setHeaderH).observe(header);
+    } else {
+      window.addEventListener("resize", setHeaderH, { passive: true });
+      window.addEventListener("load", setHeaderH);
+    }
   }
 
   /* --- Menú móvil --- */
@@ -40,7 +53,7 @@ export function initNav() {
       if (e.key === "Escape") closeMenu();
     });
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 820) closeMenu();
+      if (window.innerWidth > 1080) closeMenu();
     });
   }
 

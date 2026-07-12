@@ -12,6 +12,7 @@
   font-size: 1.125rem;
   color: var(--ink-strong);
   letter-spacing: -0.02em;
+  white-space: nowrap; /* la marca nunca se parte en 2 líneas (engordaría el header) */
 }
 
 .brand__badge {

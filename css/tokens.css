@@ -75,6 +75,7 @@
   /* --- Layout --- */
   --container: 1140px;
   --container-pad: clamp(20px, 4vw, 48px);
+  --header-h: 76px; /* respaldo; nav.js lo actualiza con la altura real del header */
 
   /* --- Movimiento --- */
   --dur-fast: 140ms;
