@@ -1,0 +1,342 @@
+/* ============================================================
+   COMPONENTS — Bloques reutilizables (BEM-lite)
+   ============================================================ */
+
+/* ---------- Marca ---------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--ink-strong);
+  letter-spacing: -0.02em;
+}
+
+.brand__badge {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 15px;
+  box-shadow: var(--e1), var(--hi);
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  padding: 13px 26px;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.btn i {
+  font-size: 0.95em;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: var(--e1);
+}
+
+.btn--primary:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--e2);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: var(--pressed);
+}
+
+.btn--secondary {
+  background: var(--surface);
+  color: var(--ink-strong);
+  border-color: var(--hairline);
+  box-shadow: var(--e1), var(--hi);
+}
+
+.btn--secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--e2), var(--hi);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--accent);
+  padding-inline: 14px;
+}
+
+.btn--ghost:hover {
+  background: var(--accent-soft);
+}
+
+.btn--sm {
+  padding: 10px 20px;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- Toggle de tema ---------- */
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+  box-shadow: var(--e1), var(--hi);
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+.theme-toggle svg {
+  width: 19px;
+  height: 19px;
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: inline-block;
+}
+
+/* ---------- Enlaces sociales ---------- */
+.social {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.social__link {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  color: var(--ink);
+  box-shadow: var(--e1), var(--hi);
+  transition: transform var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.social__link:hover {
+  transform: translateY(-3px);
+  color: var(--accent);
+}
+
+/* ---------- Chips ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-pill);
+  padding: 8px 15px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink);
+  box-shadow: var(--hi);
+}
+
+.chip__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--r-pill);
+  padding: 6px 13px;
+}
+
+/* ---------- Tarjeta genérica ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-xl);
+  box-shadow: var(--e2), var(--hi);
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  border-left: 2px solid var(--hairline);
+  margin-left: var(--sp-2);
+  padding-left: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-7);
+}
+
+.timeline__item {
+  position: relative;
+}
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--sp-6) - 7px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--canvas);
+  box-shadow: 0 0 0 1px var(--hairline);
+}
+
+.timeline__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-3);
+}
+
+.timeline__date {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.timeline__title {
+  font-size: var(--fs-h4);
+}
+
+.timeline__org {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  margin-top: 2px;
+}
+
+.timeline__desc {
+  color: var(--ink-muted);
+  margin-top: var(--sp-3);
+}
+
+/* ---------- Campos de formulario ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.field__label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+.field__control {
+  width: 100%;
+  background: var(--sunken);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: 13px 16px;
+  color: var(--ink-strong);
+  box-shadow: var(--pressed);
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.field__control::placeholder {
+  color: var(--ink-muted);
+}
+
+.field__control:focus {
+  outline: none;
+  box-shadow: var(--pressed), 0 0 0 3px var(--accent-soft);
+}
+
+textarea.field__control {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.field__error {
+  font-size: var(--fs-caption);
+  color: var(--err);
+  min-height: 1em;
+}
+
+.field.is-invalid .field__control {
+  box-shadow: var(--pressed), 0 0 0 2px var(--err);
+}
+
+.form__status {
+  font-size: var(--fs-sm);
+  color: var(--ok);
+  font-weight: 500;
+}
+
+/* ---------- Animación de entrada (scroll reveal) ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

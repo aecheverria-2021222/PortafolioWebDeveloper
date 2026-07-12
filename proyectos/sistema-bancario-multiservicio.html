@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sistema Bancario Multi-servicio — Alejandro Echeverría</title>
+  <meta name="description" content="Caso de estudio: plataforma de banca con arquitectura de múltiples servicios. Arquitectura full stack y coordinación como Scrum Master.">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Sistema Bancario Multi-servicio — Alejandro Echeverría">
+  <meta property="og:description" content="Caso de estudio: plataforma de banca multi-servicio en Java, Node.js, PostgreSQL y Docker.">
+  <meta property="og:image" content="../assets/img/og-image.png">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234B4EBD'/%3E%3Ctext x='50' y='67' font-family='Arial,sans-serif' font-size='46' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
+
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("ae-theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- HEADER -->
+  <header class="header" data-header>
+    <div class="container header__inner">
+      <a class="brand" href="../index.html#inicio" aria-label="Inicio — Alejandro Echeverría">
+        <span class="brand__badge" aria-hidden="true">AE</span>
+        Alejandro Echeverría
+      </a>
+
+      <nav class="nav" data-nav aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="../index.html#sobre-mi">Sobre mí</a></li>
+          <li><a class="nav__link" href="../index.html#habilidades">Habilidades</a></li>
+          <li><a class="nav__link" href="../index.html#trayectoria">Trayectoria</a></li>
+          <li><a class="nav__link" href="../index.html#proyectos">Proyectos</a></li>
+          <li><a class="nav__link" href="../index.html#contacto">Contacto</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm nav__cta" href="../assets/docs/cv.pdf" download>Descargar CV</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="theme-toggle" data-theme-toggle type="button" aria-label="Cambiar entre tema claro y oscuro" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a class="btn btn--primary btn--sm header__cv" href="../assets/docs/cv.pdf" download>Descargar CV</a>
+        <button class="nav-toggle" data-nav-toggle type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
+
+  <main id="contenido">
+    <div class="container">
+
+      <!-- CABECERA DEL PROYECTO -->
+      <section class="case-hero" data-reveal>
+        <a class="case-back" href="../index.html#proyectos"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a proyectos</a>
+        <span class="badge"><i class="fa-solid fa-star" aria-hidden="true"></i> Proyecto destacado</span>
+        <h1 class="case-hero__title">Sistema Bancario Multi-servicio</h1>
+        <p class="case-hero__tagline">Plataforma de banca con una arquitectura de múltiples servicios, diseñada para operaciones seguras, escalables y mantenibles.</p>
+
+        <div class="chip-group case-tags">
+          <span class="chip"><span class="chip__dot"></span>Java</span>
+          <span class="chip"><span class="chip__dot"></span>Node.js</span>
+          <span class="chip"><span class="chip__dot"></span>PostgreSQL</span>
+          <span class="chip"><span class="chip__dot"></span>Docker</span>
+        </div>
+
+        <div class="case-hero__actions">
+          <!-- TODO: enlaces reales al repositorio y a la demo -->
+          <a class="btn btn--primary" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Repositorio</a>
+          <a class="btn btn--secondary" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo</a>
+        </div>
+
+        <div class="case-meta">
+          <div class="case-meta__item">
+            <div class="case-meta__label">Año</div>
+            <div class="case-meta__value">20XX</div><!-- TODO -->
+          </div>
+          <div class="case-meta__item">
+            <div class="case-meta__label">Mi rol</div>
+            <div class="case-meta__value">Arquitecto Full Stack · Scrum Master</div>
+          </div>
+          <div class="case-meta__item">
+            <div class="case-meta__label">Tipo</div>
+            <div class="case-meta__value">Proyecto en equipo</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMAGEN PRINCIPAL -->
+      <!-- TODO: reemplazar por <img src="../assets/img/projects/bancario-hero.png" alt="..." loading="lazy"> -->
+      <div class="case-media" data-reveal role="img" aria-label="Captura principal del Sistema Bancario Multi-servicio">
+        <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+        <span>Captura principal del proyecto</span>
+      </div>
+
+      <!-- CUERPO -->
+      <div class="section case-body">
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">Contexto</h2>
+          <p>
+            El Sistema Bancario Multi-servicio es una plataforma que integra las operaciones típicas
+            de una entidad bancaria —gestión de cuentas, usuarios y transacciones— en una arquitectura
+            desacoplada, donde cada dominio se resuelve de forma independiente.
+          </p>
+          <p>
+            El proyecto se desarrolló en equipo, aplicando metodología SCRUM, con el objetivo de simular
+            un producto real y no un simple ejercicio académico.
+          </p>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">El problema</h2>
+          <p>
+            Las operaciones bancarias exigen seguridad, consistencia de los datos y capacidad de crecer
+            sin que el sistema se vuelva imposible de mantener. El reto era diseñar una solución en la
+            que cada servicio pudiera evolucionar por separado y el equipo trabajar en paralelo sin
+            pisarse.
+          </p>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">Mi rol</h2>
+          <p>Participé en dos frentes: la parte técnica y la coordinación del equipo.</p>
+          <ul class="case-list">
+            <li>Definí la arquitectura de servicios y la separación por dominios.</li>
+            <li>Desarrollé funcionalidad tanto de backend como de frontend.</li>
+            <li>Como <strong>Scrum Master</strong>, facilité las ceremonias, gestioné el backlog y mantuve al equipo enfocado en entregas iterativas.</li>
+          </ul>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">La solución</h2>
+          <p>
+            Estructuramos la plataforma en servicios independientes por dominio, con una base de datos
+            relacional <strong>PostgreSQL</strong> para garantizar la integridad de las operaciones.
+            Todo el entorno se empaquetó con <strong>Docker</strong> para que cualquier miembro del
+            equipo pudiera levantar el sistema de forma idéntica.
+          </p>
+          <ul class="case-list">
+            <li>Backend en Java y Node.js según el servicio.</li>
+            <li>Persistencia en PostgreSQL con un modelo de datos cuidado.</li>
+            <li>Contenedores Docker para un entorno reproducible.</li>
+            <li>Control de versiones con Git y flujo de trabajo en equipo.</li>
+          </ul>
+        </section>
+
+        <section class="case-section" data-reveal style="max-width:none">
+          <h2 class="case-section__title">Galería</h2>
+          <!-- TODO: reemplazar cada bloque por <img loading="lazy"> con capturas reales -->
+          <div class="case-gallery">
+            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 1</div>
+            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 2</div>
+            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 3</div>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">Resultados y aprendizajes</h2>
+          <p>
+            El equipo entregó una plataforma funcional que cubría el flujo bancario principal. A nivel
+            personal, fue el proyecto donde más aprendí sobre arquitectura desacoplada y, sobre todo,
+            sobre liderazgo: coordinar a un equipo y traducir requisitos en tareas accionables.
+          </p>
+        </section>
+      </div>
+
+      <!-- NAVEGACIÓN ENTRE PROYECTOS -->
+      <nav class="case-nav" aria-label="Navegación entre proyectos">
+        <a class="case-nav__link" href="../index.html#proyectos">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          <span><span class="dir">Volver a</span>Todos los proyectos</span>
+        </a>
+        <a class="case-nav__link" href="gestor-tienda-videojuegos.html" style="text-align:right">
+          <span><span class="dir">Siguiente</span>Gestor de Tienda de Videojuegos</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </nav>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="../index.html#inicio">
+            <span class="brand__badge" aria-hidden="true">AE</span>
+            Alejandro Echeverría
+          </a>
+          <p class="footer__brand-desc">Desarrollador Full Stack. Construyendo software con foco en la experiencia y la calidad.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Navegación</p>
+          <ul class="footer__links">
+            <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+            <li><a href="../index.html#habilidades">Habilidades</a></li>
+            <li><a href="../index.html#proyectos">Proyectos</a></li>
+            <li><a href="../index.html#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Enlaces</p>
+          <ul class="footer__links">
+            <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:tu@correo.com">Correo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Alejandro Echeverría Garrido</span>
+        <span>Hecho con HTML, CSS y JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

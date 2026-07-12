@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gestor de Tienda de Videojuegos — Alejandro Echeverría</title>
+  <meta name="description" content="Caso de estudio: sistema de gestión de inventario, ventas y catálogo para una tienda de videojuegos. Desarrollado en C# y .NET.">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Gestor de Tienda de Videojuegos — Alejandro Echeverría">
+  <meta property="og:description" content="Caso de estudio: gestión de inventario y ventas en C# y .NET.">
+  <meta property="og:image" content="../assets/img/og-image.png">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%234B4EBD'/%3E%3Ctext x='50' y='67' font-family='Arial,sans-serif' font-size='46' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
+
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("ae-theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="header" data-header>
+    <div class="container header__inner">
+      <a class="brand" href="../index.html#inicio" aria-label="Inicio — Alejandro Echeverría">
+        <span class="brand__badge" aria-hidden="true">AE</span>
+        Alejandro Echeverría
+      </a>
+      <nav class="nav" data-nav aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="../index.html#sobre-mi">Sobre mí</a></li>
+          <li><a class="nav__link" href="../index.html#habilidades">Habilidades</a></li>
+          <li><a class="nav__link" href="../index.html#trayectoria">Trayectoria</a></li>
+          <li><a class="nav__link" href="../index.html#proyectos">Proyectos</a></li>
+          <li><a class="nav__link" href="../index.html#contacto">Contacto</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm nav__cta" href="../assets/docs/cv.pdf" download>Descargar CV</a>
+      </nav>
+      <div class="header__actions">
+        <button class="theme-toggle" data-theme-toggle type="button" aria-label="Cambiar entre tema claro y oscuro" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a class="btn btn--primary btn--sm header__cv" href="../assets/docs/cv.pdf" download>Descargar CV</a>
+        <button class="nav-toggle" data-nav-toggle type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop" data-nav-backdrop aria-hidden="true"></div>
+
+  <main id="contenido">
+    <div class="container">
+
+      <section class="case-hero" data-reveal>
+        <a class="case-back" href="../index.html#proyectos"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a proyectos</a>
+        <h1 class="case-hero__title">Gestor de Tienda de Videojuegos</h1>
+        <p class="case-hero__tagline">Aplicación de gestión de inventario, ventas y catálogo para una tienda especializada en videojuegos.</p>
+
+        <div class="chip-group case-tags">
+          <span class="chip"><span class="chip__dot"></span>C#</span>
+          <span class="chip"><span class="chip__dot"></span>.NET</span>
+        </div>
+
+        <div class="case-hero__actions">
+          <a class="btn btn--primary" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Repositorio</a>
+          <a class="btn btn--secondary" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Demo</a>
+        </div>
+
+        <div class="case-meta">
+          <div class="case-meta__item">
+            <div class="case-meta__label">Año</div>
+            <div class="case-meta__value">20XX</div><!-- TODO -->
+          </div>
+          <div class="case-meta__item">
+            <div class="case-meta__label">Mi rol</div>
+            <div class="case-meta__value">Desarrollador Full Stack</div>
+          </div>
+          <div class="case-meta__item">
+            <div class="case-meta__label">Tipo</div>
+            <div class="case-meta__value">Proyecto de gestión</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TODO: reemplazar por <img src="../assets/img/projects/videojuegos-hero.png" alt="..." loading="lazy"> -->
+      <div class="case-media" data-reveal role="img" aria-label="Captura principal del Gestor de Tienda de Videojuegos">
+        <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+        <span>Captura principal del proyecto</span>
+      </div>
+
+      <div class="section case-body">
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">Contexto</h2>
+          <p>
+            Una tienda de videojuegos necesita mantener bajo control su inventario, registrar las
+            ventas y organizar un catálogo que cambia constantemente. Este proyecto centraliza toda
+            esa gestión en una sola aplicación.
+          </p>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">El problema</h2>
+          <p>
+            Llevar el inventario y las ventas de forma manual es propenso a errores y difícil de
+            escalar. El objetivo era ofrecer una herramienta fiable que centralizara productos,
+            existencias y operaciones de venta.
+          </p>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">Mi rol</h2>
+          <p>Desarrollo completo de la aplicación, de la lógica de negocio a la interfaz.</p>
+          <ul class="case-list">
+            <li>Diseño del modelo de datos (productos, stock, ventas).</li>
+            <li>Implementación de las operaciones CRUD y el registro de ventas.</li>
+            <li>Construcción de la interfaz de usuario con C# y .NET.</li>
+          </ul>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">La solución</h2>
+          <p>
+            Desarrollé la aplicación con <strong>C#</strong> sobre <strong>.NET</strong>, separando la
+            lógica de negocio de la capa de datos para mantener el código ordenado y fácil de ampliar.
+          </p>
+          <ul class="case-list">
+            <li>Gestión de catálogo con altas, bajas y modificaciones.</li>
+            <li>Control de existencias en tiempo real.</li>
+            <li>Registro de ventas con actualización automática del inventario.</li>
+          </ul>
+        </section>
+
+        <section class="case-section" data-reveal style="max-width:none">
+          <h2 class="case-section__title">Galería</h2>
+          <div class="case-gallery">
+            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 1</div>
+            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 2</div>
+            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 3</div>
+          </div>
+        </section>
+
+        <section class="case-section" data-reveal>
+          <h2 class="case-section__title">Resultados y aprendizajes</h2>
+          <p>
+            El resultado fue una aplicación de gestión funcional y ordenada. Me sirvió para consolidar
+            mis bases en C# y .NET y para entender la importancia de separar responsabilidades en el
+            código.
+          </p>
+        </section>
+      </div>
+
+      <nav class="case-nav" aria-label="Navegación entre proyectos">
+        <a class="case-nav__link" href="sistema-bancario-multiservicio.html">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          <span><span class="dir">Anterior</span>Sistema Bancario Multi-servicio</span>
+        </a>
+        <a class="case-nav__link" href="sistema-gestion-veterinaria.html" style="text-align:right">
+          <span><span class="dir">Siguiente</span>Sistema de Gestión Veterinaria</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="../index.html#inicio">
+            <span class="brand__badge" aria-hidden="true">AE</span>
+            Alejandro Echeverría
+          </a>
+          <p class="footer__brand-desc">Desarrollador Full Stack. Construyendo software con foco en la experiencia y la calidad.</p>
+        </div>
+        <div>
+          <p class="footer__col-title">Navegación</p>
+          <ul class="footer__links">
+            <li><a href="../index.html#sobre-mi">Sobre mí</a></li>
+            <li><a href="../index.html#habilidades">Habilidades</a></li>
+            <li><a href="../index.html#proyectos">Proyectos</a></li>
+            <li><a href="../index.html#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__col-title">Enlaces</p>
+          <ul class="footer__links">
+            <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:tu@correo.com">Correo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Alejandro Echeverría Garrido</span>
+        <span>Hecho con HTML, CSS y JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

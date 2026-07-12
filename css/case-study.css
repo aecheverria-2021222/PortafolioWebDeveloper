@@ -1,0 +1,209 @@
+/* ============================================================
+   CASE STUDY — Estilos de las páginas de detalle de proyecto
+   ============================================================ */
+
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.case-back:hover {
+  color: var(--accent);
+}
+
+.case-back i {
+  transition: transform var(--dur) var(--ease);
+}
+
+.case-back:hover i {
+  transform: translateX(-4px);
+}
+
+/* ---------- Cabecera del proyecto ---------- */
+.case-hero {
+  padding-block: clamp(32px, 5vw, 56px) clamp(24px, 3vw, 36px);
+}
+
+.case-hero__title {
+  font-size: var(--fs-display);
+  margin-top: var(--sp-4);
+}
+
+.case-hero__tagline {
+  font-size: var(--fs-body-lg);
+  color: var(--ink-muted);
+  margin-top: var(--sp-4);
+  max-width: 60ch;
+}
+
+.case-hero__actions {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  margin-top: var(--sp-6);
+}
+
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-6) var(--sp-8);
+  margin-top: var(--sp-7);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--hairline);
+}
+
+.case-meta__label {
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+}
+
+.case-meta__value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+/* ---------- Imagen principal ---------- */
+.case-media {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-2xl);
+  background: linear-gradient(140deg, var(--accent), var(--accent-strong));
+  display: grid;
+  place-items: center;
+  gap: var(--sp-3);
+  color: var(--on-accent);
+  box-shadow: var(--e2), var(--hi);
+  text-align: center;
+  padding: var(--sp-6);
+}
+
+.case-media i {
+  font-size: 2.2rem;
+  opacity: 0.6;
+}
+
+.case-media span {
+  font-size: var(--fs-sm);
+  opacity: 0.85;
+}
+
+/* ---------- Cuerpo (secciones de texto) ---------- */
+.case-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5vw, 64px);
+  max-width: 74ch;
+}
+
+.case-section__title {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--sp-4);
+}
+
+.case-section p {
+  color: var(--ink);
+}
+
+.case-section p + p {
+  margin-top: var(--sp-4);
+}
+
+.case-list {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.case-list li {
+  position: relative;
+  padding-left: var(--sp-6);
+  color: var(--ink);
+}
+
+.case-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Chips de stack en la cabecera */
+.case-tags {
+  margin-top: var(--sp-5);
+}
+
+/* ---------- Galería ---------- */
+.case-gallery {
+  display: grid;
+  gap: var(--sp-4);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.case-gallery__item {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-lg);
+  background: var(--sunken);
+  border: 1px dashed var(--hairline);
+  display: grid;
+  place-items: center;
+  gap: var(--sp-2);
+  color: var(--ink-muted);
+  font-size: var(--fs-sm);
+  text-align: center;
+  padding: var(--sp-4);
+}
+
+.case-gallery__item i {
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+@media (min-width: 700px) {
+  .case-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Navegación entre proyectos ---------- */
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--sp-6);
+  margin-top: clamp(40px, 6vw, 72px);
+  margin-bottom: clamp(48px, 7vw, 96px);
+}
+
+.case-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.case-nav__link:hover {
+  color: var(--accent);
+}
+
+.case-nav__link .dir {
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  display: block;
+}
