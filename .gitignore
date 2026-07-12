@@ -1,0 +1,11 @@
+# ── Código fuente de los proyectos (referencia local; NO forma parte del sitio) ──
+# Se leyeron para redactar las fichas. Las capturas ya viven en assets/img/projects.
+# Una de ellas (AllEliteGames) tiene su propio repositorio .git.
+/AHORCADO/
+/Tienda de Videojuegos/
+/Sistema de Gestión Veterinaria/
+
+# ── Archivos de sistema / editores ──
+.DS_Store
+Thumbs.db
+*.log

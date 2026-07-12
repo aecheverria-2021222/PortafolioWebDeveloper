@@ -78,23 +78,24 @@
       <section class="case-hero" data-reveal>
         <a class="case-back" href="../index.html#proyectos"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a proyectos</a>
         <h1 class="case-hero__title">Juego del Ahorcado</h1>
-        <p class="case-hero__tagline">Versión web del clásico juego de palabras, con lógica de estado propia e interfaz interactiva.</p>
+        <p class="case-hero__tagline">Versión web del clásico juego de palabras: motor propio en JavaScript, dibujo en Canvas y varios niveles con sonido y animaciones.</p>
 
         <div class="chip-group case-tags">
           <span class="chip"><span class="chip__dot"></span>HTML5</span>
           <span class="chip"><span class="chip__dot"></span>CSS3</span>
           <span class="chip"><span class="chip__dot"></span>JavaScript</span>
+          <span class="chip"><span class="chip__dot"></span>Canvas API</span>
         </div>
 
         <div class="case-hero__actions">
+          <!-- TODO: URL real del repositorio en GitHub -->
           <a class="btn btn--primary" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Repositorio</a>
-          <a class="btn btn--secondary" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Jugar demo</a>
         </div>
 
         <div class="case-meta">
           <div class="case-meta__item">
             <div class="case-meta__label">Año</div>
-            <div class="case-meta__value">20XX</div><!-- TODO -->
+            <div class="case-meta__value">2025</div>
           </div>
           <div class="case-meta__item">
             <div class="case-meta__label">Mi rol</div>
@@ -107,70 +108,87 @@
         </div>
       </section>
 
-      <!-- TODO: reemplazar por <img src="../assets/img/projects/ahorcado-hero.png" alt="..." loading="lazy"> -->
-      <div class="case-media" data-reveal role="img" aria-label="Captura principal del Juego del Ahorcado">
-        <i class="fa-solid fa-spell-check" aria-hidden="true"></i>
-        <span>Captura principal del proyecto</span>
-      </div>
+      <img class="case-media" data-reveal data-zoomable src="../assets/img/projects/ahorcado-hero.jpg"
+        alt="Partida del Juego del Ahorcado en el nivel difícil: el muñeco a medio dibujar, la palabra oculta y el teclado virtual en pantalla." loading="lazy">
 
       <div class="section case-body">
         <section class="case-section" data-reveal>
           <h2 class="case-section__title">Contexto</h2>
           <p>
-            El ahorcado es un juego de palabras sencillo pero perfecto para practicar lógica de
-            programación: adivinar una palabra letra a letra antes de agotar los intentos. Lo llevé a
-            la web con JavaScript puro.
+            El ahorcado es un clásico de adivinar una palabra letra a letra antes de agotar los
+            intentos. Lo elegí para llevar a la web un juego <em>completo</em> —con estado, interacción
+            y feedback— usando solo los fundamentos: HTML, CSS y JavaScript, sin librerías ni frameworks.
+            El resultado es una pequeña experiencia arcade con varios niveles temáticos, música y
+            animaciones.
           </p>
         </section>
 
         <section class="case-section" data-reveal>
           <h2 class="case-section__title">El problema</h2>
           <p>
-            El reto era modelar correctamente el estado del juego —palabra oculta, letras acertadas,
-            intentos restantes— y reflejarlo en una interfaz que respondiera de inmediato a cada
-            jugada.
+            El reto era doble. Primero, modelar con precisión el estado del juego —palabra secreta,
+            letras acertadas, letras ya usadas e intentos restantes— y mantenerlo sincronizado con la
+            interfaz en cada jugada. Segundo, dibujar el muñeco de forma incremental sobre un
+            <code>&lt;canvas&gt;</code>, añadiendo una parte del cuerpo por cada fallo. A eso se sumó un
+            reto de diseño: que un mismo motor sirviera para todos los niveles sin duplicar la lógica.
           </p>
         </section>
 
         <section class="case-section" data-reveal>
           <h2 class="case-section__title">Mi rol</h2>
-          <p>Desarrollo frontend completo del juego.</p>
+          <p>Diseño y desarrollo frontend completos, de principio a fin.</p>
           <ul class="case-list">
-            <li>Diseño de la lógica de estado del juego.</li>
-            <li>Manipulación del DOM para reflejar cada jugada.</li>
-            <li>Interfaz y estilos con HTML5 y CSS3.</li>
+            <li>Máquina de estado del juego en JavaScript puro (palabra, aciertos, letras usadas e intentos).</li>
+            <li>Renderizado incremental del ahorcado con la API de Canvas 2D.</li>
+            <li>Teclado virtual generado dinámicamente en el DOM.</li>
+            <li>Interfaz, temas visuales y estilos con HTML5 y CSS3.</li>
+            <li>Integración de música de fondo y efectos de sonido.</li>
           </ul>
         </section>
 
         <section class="case-section" data-reveal>
           <h2 class="case-section__title">La solución</h2>
           <p>
-            Implementé el juego con <strong>JavaScript vanilla</strong>, gestionando el estado en
-            memoria y actualizando la interfaz de forma reactiva ante cada letra elegida. Sin librerías:
-            solo fundamentos.
+            Construí un único motor de juego en <strong>JavaScript vanilla</strong> que gestiona todo el
+            estado en memoria y actualiza el DOM ante cada letra. La decisión de diseño clave fue
+            <strong>separar los datos de la lógica</strong>: cada nivel es una página que solo aporta su
+            lista de palabras, mientras el mismo script controla el comportamiento. Así, ampliar el juego
+            es tan simple como añadir palabras.
           </p>
           <ul class="case-list">
-            <li>Selección de palabra y control de intentos.</li>
-            <li>Detección de victoria y derrota.</li>
-            <li>Interfaz interactiva con retroalimentación visual.</li>
+            <li>Tres niveles de dificultad con ambientación propia —campo, clima y espacio—, cada uno con su banco de palabras y su música.</li>
+            <li>Dibujo del muñeco con la API de Canvas, parte a parte, según los fallos acumulados.</li>
+            <li>Teclado virtual en pantalla, más la opción de arriesgarse a escribir la palabra completa: aciertas y ganas, fallas y pierdes.</li>
+            <li>Detección de victoria y derrota, con mensajes, bloqueo del teclado y reinicio de partida.</li>
+            <li>Efectos de sonido para acierto, fallo y final, y una lluvia de confeti animada al ganar.</li>
+            <li>Un nivel secreto oculto tras un pequeño <em>easter egg</em>, que invierte la mecánica: el muñeco empieza completo y se va borrando.</li>
           </ul>
         </section>
 
         <section class="case-section" data-reveal style="max-width:none">
           <h2 class="case-section__title">Galería</h2>
           <div class="case-gallery">
-            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 1</div>
-            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 2</div>
-            <div class="case-gallery__item"><i class="fa-solid fa-image" aria-hidden="true"></i> Captura 3</div>
+            <img class="case-gallery__img" data-zoomable src="../assets/img/projects/ahorcado-menu.jpg"
+              alt="Menú principal del Juego del Ahorcado con la selección de nivel de dificultad." loading="lazy">
+            <img class="case-gallery__img" data-zoomable src="../assets/img/projects/ahorcado-partida.jpg"
+              alt="Partida en curso en el nivel fácil, con el muñeco a medio dibujar y las letras ya usadas." loading="lazy">
+            <img class="case-gallery__img" data-zoomable src="../assets/img/projects/ahorcado-victoria.jpg"
+              alt="Pantalla de victoria con la palabra revelada y la lluvia de confeti." loading="lazy">
           </div>
         </section>
 
         <section class="case-section" data-reveal>
           <h2 class="case-section__title">Resultados y aprendizajes</h2>
           <p>
-            El juego quedó funcional y jugable. Fue un ejercicio excelente para afianzar el manejo del
-            estado y del DOM con JavaScript puro, la base sobre la que se construye todo lo demás en el
-            frontend.
+            El juego quedó totalmente funcional y jugable en el navegador. Fue un ejercicio muy completo
+            para afianzar tres pilares del frontend: el manejo del estado, la manipulación del DOM y el
+            dibujo por código con Canvas. Reutilizar un mismo motor para todas sus variantes me enseñó,
+            en la práctica, el valor de separar datos y lógica desde el primer momento.
+          </p>
+          <p>
+            Si lo retomara hoy, unificaría los niveles en una sola página parametrizada y organizaría el
+            JavaScript en módulos ES —justo el enfoque que sigo en este portafolio—, además de añadir
+            soporte de teclado físico y persistir la mejor puntuación.
           </p>
         </section>
       </div>

@@ -340,6 +340,19 @@
   font-size: var(--fs-sm);
   color: var(--accent-strong);
   background: linear-gradient(140deg, #d9d9ea, #c7c7e0);
+  overflow: hidden;
+}
+
+.project-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.project-card:hover .project-card__thumb img {
+  transform: scale(1.04);
 }
 
 [data-theme="dark"] .project-card__thumb {

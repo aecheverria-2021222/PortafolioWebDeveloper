@@ -170,6 +170,29 @@
   opacity: 0.5;
 }
 
+/* Imágenes reales en cabecera y galería */
+img.case-media {
+  object-fit: cover;
+  width: 100%;
+  padding: 0;
+}
+
+/* Variante para capturas más anchas que 16:9: se muestran completas
+   (a lo ancho, sin recorte) conservando el marco de la cabecera. */
+.case-media.case-media--fit {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.case-gallery__img {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--hairline);
+  display: block;
+}
+
 @media (min-width: 700px) {
   .case-gallery {
     grid-template-columns: repeat(3, 1fr);

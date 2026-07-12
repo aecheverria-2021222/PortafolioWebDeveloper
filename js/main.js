@@ -8,6 +8,7 @@ import { initForm } from "./modules/form.js";
 import { initScrollNav } from "./modules/scroll-nav.js";
 import { initScrollFx } from "./modules/scroll-fx.js";
 import { initPointerGlow } from "./modules/pointer.js";
+import { initLightbox } from "./modules/lightbox.js";
 
 function start() {
   initTheme();
@@ -17,6 +18,7 @@ function start() {
   initScrollNav();
   initScrollFx();
   initPointerGlow();
+  initLightbox();
 
   // Año dinámico en el footer
   const yearEl = document.getElementById("year");
