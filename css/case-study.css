@@ -230,3 +230,35 @@ img.case-media {
   color: var(--ink-muted);
   display: block;
 }
+
+/* Segundo enlace (Siguiente / Ver todos): en escritorio se refleja hacia la
+   esquina opuesta, con el texto alineado a la derecha. */
+.case-nav__link--end {
+  text-align: right;
+}
+
+/* En móvil se apilan a ancho completo, como una lista de filas con
+   divisor. El reflejo se conserva (primero a la izquierda, segundo a la
+   derecha), pero empujando el grupo ícono+texto con justify-content en
+   vez de text-align: antes, el text-align actuaba sobre un bloque sin
+   ancho garantizado y la etiqueta quedaba flotando lejos del título. */
+@media (max-width: 640px) {
+  .case-nav {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .case-nav__link {
+    width: 100%;
+    padding-block: var(--sp-4);
+  }
+
+  .case-nav__link--end {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .case-nav__link + .case-nav__link {
+    border-top: 1px solid var(--hairline);
+  }
+}

@@ -48,11 +48,22 @@
   position: sticky;
   top: 0;
   z-index: var(--z-header);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+/* El fondo esmerilado vive en un pseudo-elemento en vez de en .header
+   directamente: backdrop-filter en el propio .header lo convertiría en el
+   "containing block" de sus descendientes position:fixed (el <nav> móvil),
+   rompiendo su tamaño/posición de pantalla completa. */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: color-mix(in srgb, var(--surface) 82%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 
 .header.is-scrolled {
@@ -218,6 +229,14 @@
     display: flex;
   }
 
+  /* Por encima del panel .nav (z-index 200 local a .header) para que el
+     botón de tema y el hamburguesa/X sigan visibles y clicables con el
+     menú abierto. */
+  .header__actions {
+    position: relative;
+    z-index: calc(var(--z-menu) + 1);
+  }
+
   .nav {
     position: fixed;
     inset: 0 0 0 auto;
@@ -249,7 +268,12 @@
     font-size: var(--fs-h4);
   }
 
-  /* Fondo oscuro al abrir el menú */
+  /* Fondo oscuro al abrir el menú.
+     z-index por debajo de --z-header (no de --z-menu): .nav vive dentro de
+     .header, que crea su propio grupo de apilamiento por tener z-index
+     propio. Comparado desde la raíz del documento, ese grupo entero pesa
+     --z-header; si el backdrop pesara más (--z-menu - 1) se pintaría encima
+     del menú y le robaría los clics a sus enlaces. */
   .nav-backdrop {
     position: fixed;
     inset: 0;
@@ -257,7 +281,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--dur) var(--ease), visibility var(--dur) var(--ease);
-    z-index: calc(var(--z-menu) - 1);
+    z-index: calc(var(--z-header) - 1);
   }
 
   .nav-backdrop.is-open {
